@@ -1,21 +1,19 @@
 '''
 Created on Sep 25, 2017
 
-@author: a monkey
+@author: dog
 '''
 
 #!/usr/bin/python
-#import sys
-import os
+
 import Tkinter
-#import tkMessageBox
+import os
+
 top=Tkinter.Tk()
 
 def helloCallBack():
-    os.system('python hellowhat.py')
+    os.system('python BIOSScripts.py')
 
 B=Tkinter.Button(top,text="hello",command= helloCallBack)
 B.pack()
 top.mainloop()
-
-#ok this might actually work, I think I'm onto something here.
