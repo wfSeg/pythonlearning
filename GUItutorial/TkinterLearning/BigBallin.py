@@ -8,7 +8,7 @@ import Tkinter
 import tkMessageBox
 #mass import all Tkinter stuff?
 from Tkinter import *
-import hellowhat
+
 
 #Big Baller in the Center position
 def center(win):
@@ -29,7 +29,7 @@ baller.title("Big Baller 3.0")
 #Logo
 from PIL import ImageTk, Image
 #Logo
-path = "S:\images\BigBallerBrand.jpg"
+path = ".\images\BigBallerBrand.jpg"
 img = ImageTk.PhotoImage(Image.open(path))
 panel = Tkinter.Label(baller, image = img)
 panel.pack(side = "bottom", fill = "both", expand = "yes")

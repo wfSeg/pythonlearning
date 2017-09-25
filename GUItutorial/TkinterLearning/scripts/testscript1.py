@@ -12,7 +12,7 @@ import os
 top=Tkinter.Tk()
 
 def helloCallBack():
-    os.system('python BIOSScripts.py')
+    os.system('python .\scripts\hellowhat.py')
 
 B=Tkinter.Button(top,text="hello",command= helloCallBack)
 B.pack()
