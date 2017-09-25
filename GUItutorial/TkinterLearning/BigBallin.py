@@ -8,6 +8,7 @@ import Tkinter
 import tkMessageBox
 #mass import all Tkinter stuff?
 from Tkinter import *
+import hellowhat
 
 #Big Baller in the Center position
 def center(win):
@@ -33,7 +34,7 @@ img = ImageTk.PhotoImage(Image.open(path))
 panel = Tkinter.Label(baller, image = img)
 panel.pack(side = "bottom", fill = "both", expand = "yes")
 
-
+""" no entry yet, figure out button first
 #Entry Field 1 IPMI IP Address
 entry1label = Label(baller, text="IPMI IP Address ")
 entry1label.pack(side = LEFT)
@@ -44,6 +45,7 @@ entry1entry.focus_set()
 entry1entry_window = canvas.create_window(120, 20, anchor=NW, window=entry1entry)
 print (entry1label.winfo_geometry())
 print (entry1entry.winfo_geometry())
+"""
 
 """ need figure out Entry
 def e1():
@@ -58,6 +60,7 @@ e1b.update()
 print (e1b.winfo_geometry())
 """
 
+""" focus on one entry field for now
 #Entry Field 2 IPMI User Name
 entry2label = Label(baller, text="IPMI Username")
 entry2label.pack(side = LEFT)
@@ -77,18 +80,38 @@ entry3entry.pack(side = RIGHT)
 entry3entry_window = canvas.create_window(120, 100, anchor=NW, window=entry3entry)
 print (entry3label.winfo_geometry())
 print (entry3entry.winfo_geometry())
+"""
 
 #Functions
-#placeholder
+"""#placeholder
 def Placeholder():
     tkMessageBox.showinfo("Ballin'", "Sorry, We're All Sold Out!\nCheck back again later")
+"""
 
 def b1():
-    import BIOSScripts
+    # Create components
+    win    = Tkinter.Toplevel()
+    win.title("BIOS Scripts")
+    frame  = Tkinter.Frame(win)
+    close = Tkinter.Button(win)
+    bb1 = Tkinter.Button(win)
+    # Config
+    close.config(text=('Close'), command=win.destroy)
+    close.focus_set()
+    bb1.config(text='SUM GetCurrentBIOSCfg')
+    bb1.Button(command=hellowhat)
+    bb1.focus_set()
+    # Packing
+    frame.pack(fill='both', expand=1)
+    close.pack(ipadx=30)
+    bb1.pack(ipadx=30)
+""" focus on one button for now.
 def b2():
     top = Toplevel()
 def b3():
     top = Toplevel()
+"""
+
 #Buttons
 #BIOS Button
 button1 = Button(text = "BIOS Scripts", command = b1)
@@ -99,6 +122,7 @@ button1_window = canvas.create_window(0, 140, anchor=NW, window=button1)
 button1.update()
 print (button1.winfo_geometry())
 
+""" focus on one button for now.
 #IPMI Button
 button2 = Button(text = "IPMI Scripts", command = b2)
 button2.configure(width = 0,
@@ -125,7 +149,7 @@ button4.configure(width = 0,
 button4_window = canvas.create_window(0, 180, anchor=NW, window=button4)
 button4.update()
 print (button3.winfo_geometry())
-
+"""
 
 center(baller)
 baller.mainloop()
