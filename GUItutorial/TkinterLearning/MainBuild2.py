@@ -26,6 +26,14 @@ def BIOSScript1(mainframe, master):
     os.system('python scripts/canvashuh.py')
 def BIOSScript2(mainframe, master):
     os.system('python scripts/hellowhat.py')
+def BIOSScript3(mainframe, master):
+    os.system('python scripts/hellowhat.py')
+def BIOSScript4(mainframe, master):
+    os.system('python scripts/hellowhat.py')
+def BIOSScript5(mainframe, master):
+    os.system('python scripts/hellowhat.py')
+def BIOSScript6(mainframe, master):
+    os.system('python scripts/hellowhat.py')
     
 def DrawMainScreen(master):
     mainframe = Frame(master) #draw Frame widget
