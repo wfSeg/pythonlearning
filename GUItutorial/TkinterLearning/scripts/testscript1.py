@@ -12,7 +12,7 @@ import os
 top=Tkinter.Tk()
 
 def helloCallBack():
-    os.system('python .\scripts\hellowhat.py')
+    os.system('python canvashuh.py')
 
 B=Tkinter.Button(top,text="hello",command= helloCallBack)
 B.pack()

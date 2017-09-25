@@ -4,10 +4,9 @@ Created on Sep 21, 2017
 @author: Isador
 '''
 #!/usr/bin/python
-import Tkinter
-import tkMessageBox
 #mass import all Tkinter stuff?
 from Tkinter import *
+import Tkinter
 
 
 #Big Baller in the Center position
@@ -20,14 +19,14 @@ def center(win):
     y = h/2 - size[1]/2
     win.geometry("%dx%d+%d+%d" % (size + (x,y)))
     
-#Canvas
-baller = Tk() #main window, usually called "master" or "root", I call it "baller"
+#Main Window using Tkinter canvas module
+baller = Tk()
 canvas = Canvas(baller)
 canvas.pack(fill=BOTH, expand=YES)
 baller.title("Big Baller 3.0")
 
-#Logo
 from PIL import ImageTk, Image
+import PIL
 #Logo
 path = ".\images\BigBallerBrand.jpg"
 img = ImageTk.PhotoImage(Image.open(path))
@@ -95,9 +94,6 @@ def b1():
     frame  = Tkinter.Frame(win)
     close = Tkinter.Button(win)
     bb1 = Tkinter.Button(win)
-    # Config
-    close.config(text=('Close'), command=win.destroy)
-    close.focus_set()
     bb1.config(text='SUM GetCurrentBIOSCfg')
     bb1.Button(command=hellowhat)
     bb1.focus_set()
