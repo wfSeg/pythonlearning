@@ -20,7 +20,7 @@ def QuitButtonCommand(master):
 def ReturnButtonCommand(mainframe, master): #Command to attach to return button
     mainframe.destroy()
     DrawMainScreen(master)
-    
+   
 #Put path/directory of scripts here, put .py in the /scripts folder
 def BIOSScript1(mainframe, master):
     os.system('python scripts/canvashuh.py')
@@ -34,7 +34,10 @@ def BIOSScript5(mainframe, master):
     os.system('python scripts/helloworld.py')
 def BIOSScript6(mainframe, master):
     os.system('python scripts/sigh.py')
-    
+
+#from ttk import *
+#      class Notebook(master):
+        
 def DrawMainScreen(master):
     mainframe = Frame(master) #draw Frame widget
     BIOSButton = Button(mainframe, text="BIOS Scripts", command=lambda: BIOSButtonCommand(mainframe, master))
@@ -54,7 +57,7 @@ def DrawSecondScreen(master):
     BIOSScript6Button = Button(mainframe, text="BIOS Script 6", command=lambda: BIOSScript6(mainframe, master))
     ReturnButton = Button(mainframe, text="Return", command=lambda: ReturnButtonCommand(mainframe, master))
     mainframe.pack()
-    BIOSScript1Button.pack(side=LEFT)
+    BIOSScript1Button.pack(side=LEFT) #this is too messy, figure out Notebook and use it instead
     BIOSScript2Button.pack(side=LEFT)
     BIOSScript3Button.pack(side=LEFT)
     BIOSScript4Button.pack(side=BOTTOM)
@@ -74,9 +77,12 @@ def center(win): #Centers the program window
 
 '''This sections is for organizing, and making the program look good
 logos, positioning, and widgets organized here'''
+    
+master.geometry('{}x{}'.format(300, 300)) #Set window size
+master.resizable(width=False, height=False) #Make it so user can't resize window
 
 from PIL import Image, ImageTk #For the Logo, automatically resizes it
-class App(Frame):
+class Logo(Frame):
     def __init__(self, master):
         Frame.__init__(self, master)
         self.columnconfigure(0,weight=1)
@@ -96,11 +102,7 @@ class App(Frame):
         self.display.delete("IMG")
         self.display.create_image(0,0, image=self.image, anchor=NW, tags="IMG")
    
- 
-master.geometry('{}x{}'.format(300, 300)) #Set window size
-master.resizable(width=False, height=False) #Make it so user can't resize window
-
-App(master)
+Logo(master)
 DrawMainScreen(master)
 center(master)
 master.mainloop() #The mainloop handles all the events that occur in a tkinter window, from button pressing to the commands that a button runs, very important
