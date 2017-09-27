@@ -6,6 +6,7 @@ Created on Sep 25, 2017
 
 from Tkinter import *
 from ttk import *
+
 #from PIL import Image, ImageTk
 
 root = Tk()
@@ -17,9 +18,13 @@ tab2 = Frame(note)
 tab3 = Frame(note)
 Button(tab1, text='Exit', command=root.destroy).pack(padx=100, pady=100)
 
-note.add(tab1, text = "Tab One") #,image=scheduledimage, compound=TOP)
-note.add(tab2, text = "Tab Two")
-note.add(tab3, text = "Tab Three")
+# Put path/directory of scripts here, put .py in the /scripts folder
+
+note.add(tab1, text = "Main") #,image=scheduledimage, compound=TOP)
+note.add(tab2, text = "BIOS")
+note.add(tab3, text = "IPMI")
 note.pack()
 root.mainloop()
 exit()
+
+# tabs are up top, like a browser. not packed or anything fancy
