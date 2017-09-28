@@ -84,6 +84,9 @@ class Logo(Frame):
         self.display.create_image(0,0, image=self.image, anchor=NW, tags="IMG")
 Logo(master)
 
+def show():
+    print e1.get()
+    
 # IPMI Tab
 tab2 = Frame(note)
 note.add(tab2, text="IPMI")
@@ -98,6 +101,7 @@ b5 = Button(tab2, text="IPMI Script 5", command=lambda: IPMIScript5(tab2, master
 b6 = Button(tab2, text="IPMI Script 6", command=lambda: IPMIScript6(tab2, master))
 Label(tab2, text="Enter IPMI IP Address").grid(row=0, column=0, padx=5, pady=5, sticky=W)
 e1.grid(row=0, column=1)
+testbutton = Button(tab2, text="test", command=show).grid(row=0, column=2, padx=5, pady=5, sticky=W)
 Label(tab2, text="Enter Username").grid(row=1, column=0, padx=5, pady=5, sticky=W)
 e2.grid(row=1, column=1)
 Label(tab2, text="Enter Password").grid(row=2, column=0, padx=5, pady=5, sticky=W)
