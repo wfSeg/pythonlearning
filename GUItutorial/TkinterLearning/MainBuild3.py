@@ -84,8 +84,28 @@ class Logo(Frame):
         self.display.create_image(0,0, image=self.image, anchor=NW, tags="IMG")
 Logo(master)
 
-def show():
-    print e1.get()
+from platform import system as system_name # Returns the system/OS name
+from os import system as system_call       # Execute a shell command
+def ping(host):
+    """
+    Returns True if host (str) responds to a ping request.
+    Remember that some hosts may not respond to a ping request even if the host name is valid.
+    """
+
+    # Ping parameters as function of OS
+    parameters = "-n 1 -w 2000" if system_name().lower()=="windows" else "-c 1 -w 2000"
+
+    # Pinging
+    return system_call("ping " + parameters + " " + host)
+
+def testipmi():
+    hostname = e1.get()
+    response = ping(hostname)
+    if response == 0:
+        tkMessageBox.showinfo("Score!", e1.get() + " is up")
+    else:
+        tkMessageBox.showinfo("Airball", e1.get() + " can't be pinged")
+    
     
 # IPMI Tab
 tab2 = Frame(note)
@@ -99,20 +119,20 @@ b3 = Button(tab2, text="IPMI Script 3", command=lambda: IPMIScript3(tab2, master
 b4 = Button(tab2, text="IPMI Script 4", command=lambda: IPMIScript4(tab2, master))
 b5 = Button(tab2, text="IPMI Script 5", command=lambda: IPMIScript5(tab2, master))
 b6 = Button(tab2, text="IPMI Script 6", command=lambda: IPMIScript6(tab2, master))
-Label(tab2, text="Enter IPMI IP Address").grid(row=0, column=0, padx=5, pady=5, sticky=W)
+Label(tab2, text="IPMI IP Address").grid(row=0, column=0, padx=5, pady=5, sticky=W)
 e1.grid(row=0, column=1)
-testbutton = Button(tab2, text="test", command=show).grid(row=0, column=2, padx=5, pady=5, sticky=W)
-Label(tab2, text="Enter Username").grid(row=1, column=0, padx=5, pady=5, sticky=W)
+testbutton = Button(tab2, text="test", command=testipmi).grid(row=0, column=2, padx=5, pady=5, sticky=W)
+Label(tab2, text="Username").grid(row=1, column=0, padx=5, pady=5, sticky=W)
 e2.grid(row=1, column=1)
-Label(tab2, text="Enter Password").grid(row=2, column=0, padx=5, pady=5, sticky=W)
+Label(tab2, text="Password").grid(row=2, column=0, padx=5, pady=5, sticky=W)
 e3.grid(row=2, column=1)
-Label(tab2, text="IPMI Scripts").grid(row=4, column=1, columnspan=3, padx=5, pady=5, sticky=W)
+Label(tab2, text="IPMI Scripts").grid(row=4, column=1, padx=5, pady=5)
 b1.grid(row=5, column=0, padx=5, pady=5, sticky=W)
-b2.grid(row=5, column=1, padx=5, pady=5, sticky=W)
-b3.grid(row=5, column=2, padx=5, pady=5, sticky=W)
+b2.grid(row=5, column=1, padx=5, pady=5)
+b3.grid(row=5, column=2, padx=5, pady=5, sticky=E)
 b4.grid(row=6, column=0, padx=5, pady=5, sticky=W)
-b5.grid(row=6, column=1, padx=5, pady=5, sticky=W)
-b6.grid(row=6, column=2, padx=5, pady=5, sticky=W)
+b5.grid(row=6, column=1, padx=5, pady=5)
+b6.grid(row=6, column=2, padx=5, pady=5, sticky=E)
 
 # BIOS Tab
 tab3 = Frame(note)
