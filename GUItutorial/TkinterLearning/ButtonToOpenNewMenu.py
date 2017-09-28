@@ -36,5 +36,15 @@ def DrawSecondScreen(master):
     ReturnButton.pack()
     Label1.pack()
     
+def center(win): #center the program window
+    win.update_idletasks()
+    w = win.winfo_screenwidth()
+    h = win.winfo_screenheight()
+    size = tuple(int(_) for _ in win.geometry().split('+')[0].split('x'))
+    x = w/2 - size[0]/2
+    y = h/2 - size[1]/2
+    win.geometry("%dx%d+%d+%d" % (size + (x,y)))
+    
+center(master)
 DrawFirstScreen(master)
 master.mainloop() #The mainloop handles all the events that occur in a tkinter window, from button pressing to the commands that a button runs, very important

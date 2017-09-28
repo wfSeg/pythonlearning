@@ -28,7 +28,7 @@ baller.title("Big Baller 3.0")
 from PIL import ImageTk, Image
 import PIL
 #Logo
-path = ".\images\BigBallerBrand.jpg"
+path = "BigBallerBrand.jpg"
 img = ImageTk.PhotoImage(Image.open(path))
 panel = Tkinter.Label(baller, image = img)
 panel.pack(side = "bottom", fill = "both", expand = "yes")

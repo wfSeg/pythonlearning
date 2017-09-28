@@ -14,31 +14,31 @@ master = Tk() # Declaring of main window
 master.title("Superballer GUI") # Title for main window
 note = Notebook(master)
    
-# Put path/directory of scripts here, put .py in the /scripts folder
+# Put scripts here
 def BIOSScript1(mainframe, master):
-    os.system('python scripts/pyinsidepy.py')
+    os.system('python pyinsidepy.py')
 def BIOSScript2(mainframe, master):
-    os.system('python scripts/hellowhat.py')
+    os.system('python hellowhat.py')
 def BIOSScript3(mainframe, master):
-    os.system('python scripts/DraftPick.py')
+    os.system('python DraftPick.py')
 def BIOSScript4(mainframe, master):
-    os.system('python scripts/ButtonToOpenNewMenu.py')
+    os.system('python ButtonToOpenNewMenu.py')
 def BIOSScript5(mainframe, master):
-    os.system('python scripts/NotebookTestmockup.py')
+    os.system('python NotebookTestmockup.py')
 def BIOSScript6(mainframe, master):
-    os.system('python scripts/TheNotebook.py')
+    os.system('python TheNotebook.py')
 def IPMIScript1(mainframe, master):
-    os.system('python scripts/canvashuh.py')
+    os.system('python canvashuh.py')
 def IPMIScript2(mainframe, master):
-    os.system('python scripts/DraftPick.py')
+    os.system('python DraftPick.py')
 def IPMIScript3(mainframe, master):
-    os.system('python scripts/hellowhat.py')
+    os.system('python hellowhat.py')
 def IPMIScript4(mainframe, master):
-    os.system('python scripts/ButtonToOpenNewMenu.py')
+    os.system('python ButtonToOpenNewMenu.py')
 def IPMIScript5(mainframe, master):
-    os.system('python scripts/helloworld.py')
+    os.system('python helloworld.py')
 def IPMIScript6(mainframe, master):
-    os.system('python scripts/FrameExample.py')    
+    os.system('python FrameExample.py')    
           
 def center(win): #Centers the program window
     win.update_idletasks()
@@ -68,7 +68,7 @@ class Logo(Frame):
         Frame.__init__(self, master)
         self.columnconfigure(0,weight=1)
         self.rowconfigure(0,weight=1)
-        self.original = Image.open('.\images\BigBallerBrand.jpg')
+        self.original = Image.open('BigBallerBrand.jpg')
         self.image = ImageTk.PhotoImage(self.original)
         self.display = Canvas(self, bd=0, highlightthickness=0)
         self.display.create_image(0,0, image=self.image, anchor=NW, tags="IMG")

@@ -34,9 +34,9 @@ panel.pack(side = "bottom", fill = "both", expand = "yes")
 """
 #Put path/directory of scripts here, put actually .py in the /scripts folder
 def b1():
-    os.system('python scripts/canvashuh.py')
+    os.system('python canvashuh.py')
 def b2():
-    os.system('python scripts/hellowhat.py')
+    os.system('python hellowhat.py')
 """
 def b3():
     top = Toplevel()

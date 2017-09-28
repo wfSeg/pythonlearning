@@ -3,9 +3,8 @@ Created on Sep 27, 2017
 
 @author: Gimli
 '''
-from Tkinter import ttk
+
 from Tkinter import *
-from Tkinter.ttk import *
 
 mainframe = Tk()
 
@@ -44,4 +43,14 @@ style_config.configure(self.Tab,
 style_config.map(self.Tab,
     background=[('selected', self.color1)])
 
+def center(win): #center the program window
+    win.update_idletasks()
+    w = win.winfo_screenwidth()
+    h = win.winfo_screenheight()
+    size = tuple(int(_) for _ in win.geometry().split('+')[0].split('x'))
+    x = w/2 - size[0]/2
+    y = h/2 - size[1]/2
+    win.geometry("%dx%d+%d+%d" % (size + (x,y)))
+
+center(mainframe)
 mainframe.mainloop()
