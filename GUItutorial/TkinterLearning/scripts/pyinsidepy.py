@@ -17,7 +17,7 @@ top = Tkinter.Tk()
 #keep getting error "0x000034ec (most recent call first):"
 def DoSomething():
     #import hellowhat
-      os.system('BigBallin.py')
+      os.system('test.py')
     
 B = Tkinter.Button(top, text = "Launch", command = DoSomething)
 

@@ -16,7 +16,7 @@ note = Notebook(master)
    
 # Put path/directory of scripts here, put .py in the /scripts folder
 def BIOSScript1(mainframe, master):
-    os.system('python scripts/canvashuh.py')
+    os.system('python scripts/pyinsidepy.py')
 def BIOSScript2(mainframe, master):
     os.system('python scripts/hellowhat.py')
 def BIOSScript3(mainframe, master):
@@ -24,21 +24,21 @@ def BIOSScript3(mainframe, master):
 def BIOSScript4(mainframe, master):
     os.system('python scripts/ButtonToOpenNewMenu.py')
 def BIOSScript5(mainframe, master):
-    os.system('python scripts/helloworld.py')
+    os.system('python scripts/NotebookTestmockup.py')
 def BIOSScript6(mainframe, master):
-    os.system('python scripts/sigh.py')
+    os.system('python scripts/TheNotebook.py')
 def IPMIScript1(mainframe, master):
     os.system('python scripts/canvashuh.py')
 def IPMIScript2(mainframe, master):
-    os.system('python scripts/hellowhat.py')
-def IPMIScript3(mainframe, master):
     os.system('python scripts/DraftPick.py')
+def IPMIScript3(mainframe, master):
+    os.system('python scripts/hellowhat.py')
 def IPMIScript4(mainframe, master):
     os.system('python scripts/ButtonToOpenNewMenu.py')
 def IPMIScript5(mainframe, master):
     os.system('python scripts/helloworld.py')
 def IPMIScript6(mainframe, master):
-    os.system('python scripts/sigh.py')    
+    os.system('python scripts/FrameExample.py')    
           
 def center(win): #Centers the program window
     win.update_idletasks()
@@ -86,6 +86,7 @@ Logo(master)
 
 from platform import system as system_name # Returns the system/OS name
 from os import system as system_call       # Execute a shell command
+
 def ping(host):
     """
     Returns True if host (str) responds to a ping request.
