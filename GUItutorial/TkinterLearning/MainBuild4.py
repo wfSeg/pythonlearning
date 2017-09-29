@@ -6,10 +6,10 @@ Created on Sep 28, 2017
 
 # Change everything from Build3 to a Class App?
 
+import Tkinter as tk
 from Tkinter import *
-import Tkinter
+from ttk import Notebook
 import os
-from ttk import *
 import tkMessageBox
 from platform import system as system_name # Returns the system/OS name
 from os import system as system_call       # Execute a shell command
@@ -104,7 +104,7 @@ class App:
             tkMessageBox.showinfo("Score!", ip.get() + " is up")
         else:
             tkMessageBox.showinfo("Airball", ip.get() + " can't be pinged")    
-#Added Logo
+# Added Logo
 from PIL import Image, ImageTk
 class Logo(Frame):
     def __init__(self, master):
@@ -125,13 +125,24 @@ class Logo(Frame):
         self.image = ImageTk.PhotoImage(resized)
         self.display.delete("IMG")
         self.display.create_image(0,0, image=self.image, anchor=NW, tags="IMG")
+        
+class center(Frame):
+    
+    def __init__(self, master):
+        Frame.__init__(self, master)
+        self.update_idletasks()
+        w = self.winfo_screenwidth()
+        h = self.winfo_screenheight()
+        size = tuple(int(_) for _ in self.geometry().split('+')[0].split('x'))
+        x = w/2 - size[0]/2
+        y = h/2 - size[1]/2
+        self.geometry("%dx%d+%d+%d" % (size + (x,y)))
 
-
-
-root = Tk()
+root = tk.Tk()
 root.title("testbuild")
 Logo(root)
 note = Notebook(root)
+center(root)
 app = App(root)
 
 root.mainloop()
