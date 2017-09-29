@@ -21,8 +21,9 @@ class App:
         # Main Tab
         tab1 = Frame(note)
         note.add(tab1, text="Main")
-        self.quit = Button(tab1, text = "Quit", command=quit).grid(row=0, column=0)
-        self.hi_there = Button(tab1, text="Hello", command=self.say_hi).grid(row=0, column=1)
+        self.hi_there = Button(tab1, text="Hello", command=self.say_hi).grid(row=0, column=1, ipadx=50, pady=10)
+        self.quit = Button(tab1, text = "Quit", command=quit).grid(row=1, column=1, ipadx=50, pady=10)
+        
         
         # IPMI Tab
         tab2 = Frame(note)
@@ -125,7 +126,7 @@ class Logo(Frame):
         self.image = ImageTk.PhotoImage(resized)
         self.display.delete("IMG")
         self.display.create_image(0,0, image=self.image, anchor=NW, tags="IMG")
-        
+'''        
 class center(Frame):
     
     def __init__(self, master):
@@ -137,12 +138,23 @@ class center(Frame):
         x = w/2 - size[0]/2
         y = h/2 - size[1]/2
         self.geometry("%dx%d+%d+%d" % (size + (x,y)))
+'''
+
+def center(win): #Centers the program window
+    win.update_idletasks()
+    w = win.winfo_screenwidth()
+    h = win.winfo_screenheight()
+    size = tuple(int(_) for _ in win.geometry().split('+')[0].split('x'))
+    x = w/2 - size[0]/2
+    y = h/2 - size[1]/2
+    win.geometry("%dx%d+%d+%d" % (size + (x,y)))
+
+
 
 root = tk.Tk()
-root.title("testbuild")
-Logo(root)
+root.title("Super Test")
 note = Notebook(root)
-center(root)
+Logo(root)
 app = App(root)
-
+center(root)
 root.mainloop()
