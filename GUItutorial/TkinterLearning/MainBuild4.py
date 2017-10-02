@@ -28,37 +28,43 @@ class App:
         # IPMI Tab
         tab2 = Frame(note)
         note.add(tab2, text="IPMI")
+        # IP Address    
         Label(tab2, text="IPMI IP Address").grid(row=0, column=0, padx=5, pady=5, sticky=W)
-        Label(tab2, text="Username").grid(row=1, column=0, padx=5, pady=5, sticky=W)
-        Label(tab2, text="Password").grid(row=2, column=0, padx=5, pady=5, sticky=W)
-        Label(tab2, text="IPMI Scripts").grid(row=4, column=1, padx=5, pady=5)
-        e1 = Entry(tab2) # IP Address
+        e1 = Entry(tab2) 
         e1.grid(row=0, column=1)
-        e2 = Entry(tab2) # username
+        Button(tab2, text="Test IP", command=lambda: self.testipmi(e1.get())).grid(row=0, column=2, padx=5, pady=5, sticky=W)
+        # username
+        Label(tab2, text="Username").grid(row=1, column=0, padx=5, pady=5, sticky=W)
+        e2 = Entry(tab2) 
         e2.grid(row=1, column=1)
-        e3 = Entry(tab2) # password
+        # password
+        Label(tab2, text="Password").grid(row=2, column=0, padx=5, pady=5, sticky=W)
+        e3 = Entry(tab2) 
         e3.grid(row=2, column=1)
-        e4 = Entry(tab2) # command
+        # command
+        e4 = Entry(tab2) 
         e4.grid(row=3, column=1)
-        testbutton = Button(tab2, text="Test IP", command=lambda: self.testipmi(e1.get())).grid(row=0, column=2, padx=5, pady=5, sticky=W)
-        b1 = Button(tab2, text="IPMI Script 1", command=lambda: self.IPMIScript1(master)).grid(row=5, column=0, padx=5, pady=5, sticky=W)
-        b2 = Button(tab2, text="IPMI Script 2", command=lambda: self.IPMIScript2(master)).grid(row=5, column=1, padx=5, pady=5)
-        b3 = Button(tab2, text="IPMI Script 3", command=lambda: self.IPMIScript3(master)).grid(row=5, column=2, padx=5, pady=5, sticky=E)
-        b4 = Button(tab2, text="IPMI Script 4", command=lambda: self.IPMIScript4(master)).grid(row=6, column=0, padx=5, pady=5, sticky=W)
-        b5 = Button(tab2, text="IPMI Script 5", command=lambda: self.IPMIScript5(master)).grid(row=6, column=1, padx=5, pady=5)
-        b6 = Button(tab2, text="IPMI Script 6", command=lambda: self.IPMIScript6(master)).grid(row=6, column=2, padx=5, pady=5, sticky=E)
+        Label(tab2, text="SMCIPMITool command").grid(row=3, column=0, padx=5, pady=5, sticky=W)
+        # IPMI Scripts section
+        Label(tab2, text="IPMI Scripts").grid(row=4, column=1, padx=5, pady=5)
+        Button(tab2, text="SMCIPMITool", command=lambda: self.SMC(e1.get(), e2.get(), e3.get(), e4.get())).grid(row=5, column=0, padx=5, pady=5, sticky=W)
+        Button(tab2, text="IPMI Script 2", command=lambda: self.IPMIScript2(master)).grid(row=5, column=1, padx=5, pady=5)
+        Button(tab2, text="IPMI Script 3", command=lambda: self.IPMIScript3(master)).grid(row=5, column=2, padx=5, pady=5, sticky=E)
+        Button(tab2, text="IPMI Script 4", command=lambda: self.IPMIScript4(master)).grid(row=6, column=0, padx=5, pady=5, sticky=W)
+        Button(tab2, text="IPMI Script 5", command=lambda: self.IPMIScript5(master)).grid(row=6, column=1, padx=5, pady=5)
+        Button(tab2, text="IPMI Script 6", command=lambda: self.IPMIScript6(master)).grid(row=6, column=2, padx=5, pady=5, sticky=E)
         
         # BIOS Tab
         tab3 = Frame(note)
         note.add(tab3, text="BIOS")
-        Label1 = Label(tab3, text="BIOS Scripts")
+        Label(tab3, text="BIOS Scripts")
         Label(tab3, text="BIOS Scripts").grid(row=0, column=1, columnspan=3, padx=5, pady=5, sticky=W)
-        b1 = Button(tab3, text="BIOS Script 1", command=lambda: self.BIOSScript1(master)).grid(row=1, column=0, padx=5, pady=5, sticky=W)
-        b2 = Button(tab3, text="BIOS Script 2", command=lambda: self.BIOSScript2(master)).grid(row=1, column=1, padx=5, pady=5, sticky=W)
-        b3 = Button(tab3, text="BIOS Script 3", command=lambda: self.BIOSScript3(master)).grid(row=1, column=2, padx=5, pady=5, sticky=W)
-        b4 = Button(tab3, text="BIOS Script 4", command=lambda: self.BIOSScript4(master)).grid(row=2, column=0, padx=5, pady=5, sticky=W)
-        b5 = Button(tab3, text="BIOS Script 5", command=lambda: self.BIOSScript5(master)).grid(row=2, column=1, padx=5, pady=5, sticky=W)
-        b6 = Button(tab3, text="BIOS Script 6", command=lambda: self.BIOSScript6(master)).grid(row=2, column=2, padx=5, pady=5, sticky=W)
+        Button(tab3, text="BIOS Script 1", command=lambda: self.BIOSScript1(master)).grid(row=1, column=0, padx=5, pady=5, sticky=W)
+        Button(tab3, text="BIOS Script 2", command=lambda: self.BIOSScript2(master)).grid(row=1, column=1, padx=5, pady=5, sticky=W)
+        Button(tab3, text="BIOS Script 3", command=lambda: self.BIOSScript3(master)).grid(row=1, column=2, padx=5, pady=5, sticky=W)
+        Button(tab3, text="BIOS Script 4", command=lambda: self.BIOSScript4(master)).grid(row=2, column=0, padx=5, pady=5, sticky=W)
+        Button(tab3, text="BIOS Script 5", command=lambda: self.BIOSScript5(master)).grid(row=2, column=1, padx=5, pady=5, sticky=W)
+        Button(tab3, text="BIOS Script 6", command=lambda: self.BIOSScript6(master)).grid(row=2, column=2, padx=5, pady=5, sticky=W)
              
         note.pack()
 
@@ -107,7 +113,12 @@ class App:
         if response == 0:
             tkMessageBox.showinfo("Score!", master + " is up")
         else:
-            tkMessageBox.showinfo("Airball", master + " can't be pinged")    
+            tkMessageBox.showinfo("Airball", master + " can't be pinged")  
+            
+    def SMC(self, e1, e2, e3, e4):
+        cmd = ".\SMCtool\SMCIPMITool.exe"
+        os.system(' '.join([cmd, e1, e2 , e3, e4])) # genius way to concatenate spaces
+              
 # Added Logo
 from PIL import Image, ImageTk
 class Logo(Frame):

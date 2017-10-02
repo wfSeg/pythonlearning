@@ -47,7 +47,7 @@ class App:
         
     def SMC(self, e1, e2, e3, e4):
         cmd = ".\SMCtool\SMCIPMITool.exe"
-        os.system(' '.join([cmd, e1, e2 , e3, e4]))
+        os.system(' '.join([cmd, e1, e2 , e3, e4])) # genius way to concatenate spaces
         
     def ping(self, host):
         """
