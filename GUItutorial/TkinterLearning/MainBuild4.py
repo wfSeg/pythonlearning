@@ -32,11 +32,15 @@ class App:
         Label(tab2, text="Username").grid(row=1, column=0, padx=5, pady=5, sticky=W)
         Label(tab2, text="Password").grid(row=2, column=0, padx=5, pady=5, sticky=W)
         Label(tab2, text="IPMI Scripts").grid(row=4, column=1, padx=5, pady=5)
-        ip = StringVar()
-        e1 = Entry(tab2, textvariable=ip).grid(row=0, column=1)
-        e2 = Entry(tab2).grid(row=1, column=1)
-        e3 = Entry(tab2).grid(row=2, column=1)
-        testbutton = Button(tab2, text="test", command=lambda: self.testipmi(ip)).grid(row=0, column=2, padx=5, pady=5, sticky=W)
+        e1 = Entry(tab2) # IP Address
+        e1.grid(row=0, column=1)
+        e2 = Entry(tab2) # username
+        e2.grid(row=1, column=1)
+        e3 = Entry(tab2) # password
+        e3.grid(row=2, column=1)
+        e4 = Entry(tab2) # command
+        e4.grid(row=3, column=1)
+        testbutton = Button(tab2, text="Test IP", command=lambda: self.testipmi(e1.get())).grid(row=0, column=2, padx=5, pady=5, sticky=W)
         b1 = Button(tab2, text="IPMI Script 1", command=lambda: self.IPMIScript1(master)).grid(row=5, column=0, padx=5, pady=5, sticky=W)
         b2 = Button(tab2, text="IPMI Script 2", command=lambda: self.IPMIScript2(master)).grid(row=5, column=1, padx=5, pady=5)
         b3 = Button(tab2, text="IPMI Script 3", command=lambda: self.IPMIScript3(master)).grid(row=5, column=2, padx=5, pady=5, sticky=E)
@@ -56,7 +60,6 @@ class App:
         b5 = Button(tab3, text="BIOS Script 5", command=lambda: self.BIOSScript5(master)).grid(row=2, column=1, padx=5, pady=5, sticky=W)
         b6 = Button(tab3, text="BIOS Script 6", command=lambda: self.BIOSScript6(master)).grid(row=2, column=2, padx=5, pady=5, sticky=W)
              
-
         note.pack()
 
     def say_hi(self):
@@ -98,13 +101,13 @@ class App:
         # Pinging
         return system_call("ping " + parameters + " " + host)
     
-    def testipmi(self, ip):
-        hostname = ip.get()
+    def testipmi(self, master):
+        hostname = master
         response = self.ping(hostname)
         if response == 0:
-            tkMessageBox.showinfo("Score!", ip.get() + " is up")
+            tkMessageBox.showinfo("Score!", master + " is up")
         else:
-            tkMessageBox.showinfo("Airball", ip.get() + " can't be pinged")    
+            tkMessageBox.showinfo("Airball", master + " can't be pinged")    
 # Added Logo
 from PIL import Image, ImageTk
 class Logo(Frame):
